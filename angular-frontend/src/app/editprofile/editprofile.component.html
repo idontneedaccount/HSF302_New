@@ -1,0 +1,40 @@
+<div class="profile">
+    <h2>Edit Profile</h2>
+  
+    <!-- Error Message -->
+    <p *ngIf="error" class="error">{{ error }}</p>
+    
+    <!-- Success Message -->
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+  
+    <!-- User Profile Form -->
+    <div *ngIf="user">
+      <form (ngSubmit)="handleUpdateProfile()">
+        <div class="form-group">
+          <label for="firstName"><strong>First Name:</strong></label>
+          <input type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="lastName"><strong>Last Name:</strong></label>
+          <input type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email"><strong>Email:</strong></label>
+          <input type="email" id="email" [(ngModel)]="user.email" name="email" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label for="phoneNumber"><strong>Phone Number:</strong></label>
+          <input type="tel" id="phoneNumber" [(ngModel)]="user.phoneNumber" name="phoneNumber" readonly>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="update-btn">Update Profile</button>
+          <button type="button" class="cancel-btn" (click)="goBackToProfile()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
